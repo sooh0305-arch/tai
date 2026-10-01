@@ -1,1 +1,88 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10141c">
+<title>타이중 2박 3일 일정</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#0e1117;--card:#171c25;--line:#303746;--text:#f5f7fb;--muted:#9ca6b7;--yellow:#ffcf5a;--blue:#78d7ff;--green:#8de1b2;--max:1080px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Pretendard","Noto Sans KR",sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+.hero{padding:110px 0 70px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 15%,#17404f 0,transparent 28%),radial-gradient(circle at 10% 20%,#4b371e 0,transparent 25%),#10141c}.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--yellow);font-weight:800}.hero h1{font-size:clamp(54px,9vw,110px);line-height:.9;letter-spacing:-.06em;margin:14px 0 24px}.hero p{max-width:760px;color:#d4dbe6;font-size:18px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chip,.badge{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#ffffff08;font-size:12px}
+nav{position:sticky;top:0;z-index:30;background:#0e1117ee;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}nav .wrap{height:56px;display:flex;gap:8px;align-items:center;overflow:auto}.navbtn{white-space:nowrap;padding:7px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:#c5cedb}
+section{padding:74px 0;border-bottom:1px solid var(--line)}.head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:26px}.head h2{font-size:clamp(34px,5vw,58px);margin:0;letter-spacing:-.045em}.head p{max-width:480px;margin:0;color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.card{background:linear-gradient(180deg,#1b2029,#151922);border:1px solid var(--line);border-radius:22px;padding:22px}.tag{font-size:11px;color:var(--blue);font-weight:800}.card h3{margin:7px 0 8px}.card ul{padding-left:18px;margin:8px 0}.card li{margin:6px 0;color:#d8deea}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:18px}.fact{padding:13px;border-radius:14px;background:#ffffff08}.fact b{display:block;font-size:20px}.fact span{font-size:11px;color:var(--muted)}
+.tip{margin-top:16px;padding:14px 16px;border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;background:#ffcf5a0d;color:#dce2ec}
+.timeline{display:grid;gap:10px}.stop{display:grid;grid-template-columns:80px 1fr;gap:14px;padding:17px;border:1px solid var(--line);border-radius:17px;background:#141820}.time{font-size:12px;color:var(--yellow);font-weight:800}.stop h4{margin:0 0 5px;font-size:18px}.stop p{margin:0;color:var(--muted);font-size:13px}.route{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.move,.price{font-size:11px;padding:6px 8px;border-radius:9px;background:#ffffff08}.price{background:#8de1b217;color:#dcf7e7}.maplink{font-size:11px;color:var(--blue);align-self:center}
+.daytitle{display:flex;gap:10px;align-items:center;margin:0 0 16px}.daynum{padding:7px 9px;border-radius:8px;background:var(--yellow);color:#111;font-size:11px;font-weight:900}.daynum.blue{background:var(--blue)}.daynum.green{background:var(--green)}
+.whisky{display:grid;grid-template-columns:1fr 1fr;gap:14px}.maps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.map{height:330px;border-radius:15px;overflow:hidden;border:1px solid var(--line);margin-top:12px}.routes{padding-left:18px}.routes li{margin:5px 0}.btn{display:inline-block;margin-top:10px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#ffffff08;font-size:12px}
+footer{padding:50px 0 80px;color:#8f99aa;font-size:12px}
+@media(max-width:900px){.grid3,.grid2,.whisky,.maps{grid-template-columns:1fr}}@media(max-width:650px){.hero{padding-top:78px}.hero h1{font-size:58px}.head{display:block}.head p{margin-top:10px}.stop{grid-template-columns:65px 1fr}.map{height:230px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap"><div class="eyebrow">TAICHUNG · 2 NIGHTS / 3 DAYS</div><h1>타이중<br>2박 3일 일정</h1><p>53 Hotel을 거점으로 타이중역 구도심, 서구 산책, 국가가극원, 고미습지와 펑지아 야시장을 묶은 일정. 이동시간과 대략적인 택시비·식비도 함께 정리했다.</p><div class="chips"><span class="chip">✈️ 11:00 도착</span><span class="chip">🏨 53 Hotel</span><span class="chip">✈️ 17:00 귀국</span><span class="chip">💸 TWD 기준</span></div></div></header>
+<nav><div class="wrap"><a class="navbtn" href="#packing">준비물</a><a class="navbtn" href="#base">숙소</a><a class="navbtn" href="#d1">DAY 1</a><a class="navbtn" href="#d2">DAY 2</a><a class="navbtn" href="#d3">DAY 3</a><a class="navbtn" href="#kavalan">카발란</a><a class="navbtn" href="#maps">동선 지도</a></div></nav>
+
+<section id="packing"><div class="wrap"><div class="head"><h2>대만 여행 준비물</h2><p>2박 3일 기준으로 꼭 필요한 것만. 낮에는 덥고 실내 냉방과 저녁 바람을 대비해 얇은 겉옷 하나 정도면 충분.</p></div><div class="grid3">
+<div class="card"><div class="tag">DOCUMENTS</div><h3>필수</h3><ul><li>여권</li><li>항공권·호텔 예약 바우처</li><li>해외결제 카드</li><li>여행자보험 정보(선택)</li></ul></div>
+<div class="card"><div class="tag">MONEY</div><h3>현금 & 교통</h3><ul><li>대만달러 현금</li><li>야시장용 소액권</li><li>EasyCard</li><li>택시 앱/번역 앱</li></ul></div>
+<div class="card"><div class="tag">BASICS</div><h3>생활용품</h3><ul><li>보조배터리·충전기</li><li>우산 또는 우비</li><li>상비약·소화제</li><li>편한 운동화</li></ul></div>
+</div><div class="tip"><b>카발란 구매 예정:</b> 병 보호용 에어캡 파우치나 여유 옷을 챙겨두면 위탁수하물 포장할 때 편하다.</div></div></section>
+
+<section id="base"><div class="wrap"><div class="head"><h2>숙소 & 이동 기준</h2><p>첫날 핵심 장소가 타이중역에 몰려 있어 53 Hotel을 거점으로 잡으면 효율적.</p></div><div class="grid2">
+<div class="card"><div class="tag">HOTEL</div><h3>53 Hotel Taichung</h3><p>궁원안과 맞은편, 타이중역 도보권.</p><div class="facts"><div class="fact"><b>1분</b><span>궁원안과 도보</span></div><div class="fact"><b>약 5분</b><span>타이중역 도보</span></div><div class="fact"><b>약 40분</b><span>공항 택시</span></div><div class="fact"><b>O</b><span>세탁실·헬스장</span></div></div></div>
+<div class="card"><div class="tag">MOVE</div><h3>택시를 쓰면 좋은 구간</h3><p>공항 ↔ 호텔, 호텔 → 국가가극원 → 고미습지 → 펑지아.</p><div class="tip">시내 짧은 거리는 걷고, 외곽 이동에서 택시비를 쓰는 편이 시간을 가장 많이 아낀다.</div></div>
+</div></div></section>
+
+<section id="d1"><div class="wrap"><div class="head"><h2>DAY 1</h2><p>타이중역 · 구도심 · 서구</p></div><h3 class="daytitle"><span class="daynum">01</span>타이중역에서 시작</h3><div class="timeline">
+<div class="stop"><div class="time">11:00</div><div><h4>타이중 국제공항 → 53 Hotel</h4><p>입국·수하물 후 택시 이동.</p><div class="route"><span class="move">🚕 약 40분</span><span class="price">💸 550~700 TWD</span><a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=53+Hotel+Taichung">지도 ↗</a></div></div></div>
+<div class="stop"><div class="time">12:30</div><div><h4>53 Hotel · 짐 맡기기</h4><p>체크인 전이면 짐만 맡기고 출발.</p><div class="route"><span class="price">💸 무료</span></div></div></div>
+<div class="stop"><div class="time">13:00</div><div><h4>궁원안과 Miyahara</h4><p>건물 구경 + 아이스크림/펑리수.</p><div class="route"><span class="move">🚶 약 1분</span><span class="price">💸 입장 무료 / 디저트 200~350 TWD</span></div></div></div>
+<div class="stop"><div class="time">14:00</div><div><h4>Animate Taichung</h4><p>굿즈·만화 구경.</p><div class="route"><span class="move">🚶 7~10분</span><span class="price">💸 입장 무료 / 쇼핑 300~1,500+ TWD</span></div></div></div>
+<div class="stop"><div class="time">15:15</div><div><h4>KAVALAN 타이중 신역전 판매센터</h4><p>Animate와 가까워 함께 보기 좋다.</p><div class="route"><span class="move">🚶 1~2분</span><span class="price">💸 병 기준 대략 900~4,000+ TWD</span></div></div></div>
+<div class="stop"><div class="time">16:15</div><div><h4>Painted Animation Lane</h4><p>벽화 골목. 30~40분이면 충분.</p><div class="route"><span class="move">🚕 7~10분</span><span class="price">💸 택시 140~200 TWD / 무료</span></div></div></div>
+<div class="stop"><div class="time">17:05</div><div><h4>Shen Ji New Village</h4><p>디자인숍·소품·디저트.</p><div class="route"><span class="move">🚕 5~8분</span><span class="price">💸 택시 110~170 / 카페 120~220 TWD</span></div></div></div>
+<div class="stop"><div class="time">18:10</div><div><h4>Calligraphy Greenway · 저녁</h4><p>산책 후 CMP·공익로 주변에서 저녁.</p><div class="route"><span class="move">🚶 5~10분</span><span class="price">💸 저녁 250~500 / 호텔 택시 180~250 TWD</span></div></div></div>
+</div></div></section>
+
+<section id="d2"><div class="wrap"><div class="head"><h2>DAY 2</h2><p>국가가극원 · 고미습지 · 펑지아 야시장</p></div><h3 class="daytitle"><span class="daynum blue">02</span>건축 & 일몰</h3><div class="timeline">
+<div class="stop"><div class="time">09:30</div><div><h4>53 Hotel → 국립 타이중 극장</h4><p>곡선형 실내와 옥상 정원 구경.</p><div class="route"><span class="move">🚕 7~10분</span><span class="price">💸 택시 180~250 TWD / 공용공간 무료</span></div></div></div>
+<div class="stop"><div class="time">11:30</div><div><h4>시툰 지역 점심 · 카페</h4><p>극장 주변에서 여유 있게 식사.</p><div class="route"><span class="price">💸 식사 250~450 / 카페 120~200 TWD</span></div></div></div>
+<div class="stop"><div class="time">일몰 -2h</div><div><h4>국가가극원 → 고미습지</h4><p>일몰 1~1.5시간 전 도착 목표.</p><div class="route"><span class="move">🚕 약 25분</span><span class="price">💸 650~850 TWD</span></div></div></div>
+<div class="stop"><div class="time">SUNSET</div><div><h4>Gaomei Wetlands</h4><p>습지·풍력발전기·석양.</p><div class="route"><span class="move">📷 1.5~2시간</span><span class="price">💸 무료</span></div></div></div>
+<div class="stop"><div class="time">저녁</div><div><h4>고미습지 → 펑지아 야시장</h4><p>일몰 후 바로 이동.</p><div class="route"><span class="move">🚕 약 26분</span><span class="price">💸 택시 500~700 / 식비 200~500 TWD</span></div></div></div>
+<div class="stop"><div class="time">21:00</div><div><h4>펑지아 → 53 Hotel</h4><p>택시로 복귀.</p><div class="route"><span class="move">🚕 7~15분</span><span class="price">💸 180~250 TWD</span></div></div></div>
+</div></div></section>
+
+<section id="d3"><div class="wrap"><div class="head"><h2>DAY 3</h2><p>타이중역 주변만 가볍게 보고 공항 이동</p></div><h3 class="daytitle"><span class="daynum green">03</span>구도심 & 귀국</h3><div class="timeline">
+<div class="stop"><div class="time">09:00</div><div><h4>체크아웃 · 짐 보관</h4><p>호텔에 짐 맡기기.</p><div class="route"><span class="price">💸 무료</span></div></div></div>
+<div class="stop"><div class="time">09:30</div><div><h4>타이중역 주변 산책</h4><p>구 역사·녹천·기념품 쇼핑.</p><div class="route"><span class="move">🚶 5~15분</span><span class="price">💸 산책 무료</span></div></div></div>
+<div class="stop"><div class="time">11:30</div><div><h4>점심</h4><p>호텔 주변에서 식사.</p><div class="route"><span class="price">💸 200~350 TWD</span></div></div></div>
+<div class="stop"><div class="time">13:10</div><div><h4>53 Hotel → 타이중 국제공항</h4><p>교통상황 고려해 일찍 출발.</p><div class="route"><span class="move">🚕 약 40분</span><span class="price">💸 550~700 TWD</span></div></div></div>
+<div class="stop"><div class="time">17:00</div><div><h4>한국행 출발</h4><p>14:00 전후 공항 도착 목표.</p></div></div>
+</div></div></section>
+
+<section id="kavalan"><div class="wrap"><div class="head"><h2>KAVALAN 구매</h2><p>증류소까지 가지 않고 타이중역 인근 판매센터에서 해결.</p></div><div class="whisky">
+<div class="card"><div class="tag">STORE</div><h3>台中新站前展售中心</h3><ul><li>台中市東區復興路四段218之3號</li><li>12:00–20:30</li><li>Animate와 매우 가까움</li></ul></div>
+<div class="card"><div class="tag">BUYING TIP</div><h3>구매 타이밍</h3><ul><li>DAY 1 구매 후 호텔 보관</li><li>위탁수하물 규정 확인</li><li>옷이나 완충재로 병 보호</li></ul></div>
+</div></div></section>
+
+<section id="maps"><div class="wrap"><div class="head"><h2>동선 지도</h2><p>1·2·3일차를 각각 분리해서 확인. 선은 일정 순서를 보여주는 대략적인 연결선.</p></div><div class="maps">
+<div class="card"><div class="tag">DAY 1 MAP</div><h3>타이중역 · 서구</h3><div id="map1" class="map"></div><ol class="routes"><li>공항</li><li>53 Hotel</li><li>궁원안과</li><li>Animate</li><li>KAVALAN</li><li>Painted Animation Lane</li><li>Shen Ji</li><li>Calligraphy Greenway</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/Taichung+International+Airport/53+Hotel+Taichung/Miyahara+Taichung/Animate+Taichung/KAVALAN+Taichung/Painted+Animation+Lane+Taichung/Shen+Ji+New+Village+Taichung/Calligraphy+Greenway+Taichung/">구글맵 경로 ↗</a></div>
+<div class="card"><div class="tag">DAY 2 MAP</div><h3>국가가극원 · 고미습지</h3><div id="map2" class="map"></div><ol class="routes"><li>53 Hotel</li><li>국가가극원</li><li>고미습지</li><li>펑지아 야시장</li><li>53 Hotel</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/53+Hotel+Taichung/National+Taichung+Theater/Gaomei+Wetlands/Feng+Chia+Night+Market/53+Hotel+Taichung/">구글맵 경로 ↗</a></div>
+<div class="card"><div class="tag">DAY 3 MAP</div><h3>타이중역 · 공항</h3><div id="map3" class="map"></div><ol class="routes"><li>53 Hotel</li><li>타이중역 주변</li><li>53 Hotel</li><li>공항</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/53+Hotel+Taichung/Taichung+Station/53+Hotel+Taichung/Taichung+International+Airport/">구글맵 경로 ↗</a></div>
+</div></div></section>
+
+<footer><div class="wrap">이동시간과 가격은 대략적인 예상치이며 교통량·수요·환율에 따라 달라질 수 있습니다.</div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+function mk(id,pts,c){const m=L.map(id,{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(m);const ll=pts.map(x=>x[1]);m.fitBounds(L.latLngBounds(ll).pad(.18));L.polyline(ll,{color:c,weight:4}).addTo(m);pts.forEach((x,i)=>L.circleMarker(x[1],{radius:7,color:c,fillColor:c,fillOpacity:.9}).addTo(m).bindPopup('<b>'+(i+1)+'. '+x[0]+'</b>'))}
+mk('map1',[['공항',[24.2647,120.6217]],['53 Hotel',[24.1360,120.6845]],['궁원안과',[24.1369,120.6841]],['Animate',[24.1364,120.6872]],['KAVALAN',[24.1364,120.6870]],['Painted Animation Lane',[24.1456,120.6624]],['Shen Ji',[24.1453,120.6644]],['Calligraphy Greenway',[24.1480,120.6633]]],'#f5b73b');
+mk('map2',[['53 Hotel',[24.1360,120.6845]],['국가가극원',[24.1640,120.6404]],['고미습지',[24.3119,120.5507]],['펑지아',[24.1799,120.6468]],['53 Hotel',[24.1360,120.6845]]],'#55c6ff');
+mk('map3',[['53 Hotel',[24.1360,120.6845]],['타이중역',[24.1367,120.6850]],['53 Hotel',[24.1360,120.6845]],['공항',[24.2647,120.6217]]],'#8de1b2');
+</script>
+</body>
+</html>
