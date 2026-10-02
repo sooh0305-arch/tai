@@ -17,7 +17,7 @@ section{padding:74px 0;border-bottom:1px solid var(--line)}.head{display:flex;ju
 .tip{margin-top:16px;padding:14px 16px;border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;background:#ffcf5a0d;color:#dce2ec}
 .timeline{display:grid;gap:10px}.stop{display:grid;grid-template-columns:80px 1fr;gap:14px;padding:17px;border:1px solid var(--line);border-radius:17px;background:#141820}.time{font-size:12px;color:var(--yellow);font-weight:800}.stop h4{margin:0 0 5px;font-size:18px}.stop p{margin:0;color:var(--muted);font-size:13px}.route{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.move,.price{font-size:11px;padding:6px 8px;border-radius:9px;background:#ffffff08}.price{background:#8de1b217;color:#dcf7e7}.maplink{font-size:11px;color:var(--blue);align-self:center}
 .daytitle{display:flex;gap:10px;align-items:center;margin:0 0 16px}.daynum{padding:7px 9px;border-radius:8px;background:var(--yellow);color:#111;font-size:11px;font-weight:900}.daynum.blue{background:var(--blue)}.daynum.green{background:var(--green)}
-.whisky{display:grid;grid-template-columns:1fr 1fr;gap:14px}.maps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.map{height:330px;border-radius:15px;overflow:hidden;border:1px solid var(--line);margin-top:12px}.routes{padding-left:18px}.routes li{margin:5px 0}.btn{display:inline-block;margin-top:10px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#ffffff08;font-size:12px}
+.whisky{display:grid;grid-template-columns:1fr 1fr;gap:14px}.maps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.map{height:330px;border-radius:15px;overflow:hidden;border:1px solid var(--line);margin-top:12px}.routes{padding-left:18px}.routes li{margin:5px 0}.routes li b{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;margin-right:6px;border-radius:999px;background:#ffffff12;color:#fff;font-size:11px}.maphelp{margin-top:8px;font-size:12px;color:#aeb6c4}.route-marker{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;color:#111;font-weight:900;font-size:13px;border:2px solid rgba(255,255,255,.88);box-shadow:0 4px 14px rgba(0,0,0,.3)}.route-label{background:rgba(14,17,23,.9)!important;color:#fff!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:999px!important;padding:3px 8px!important;font-size:11px!important;font-weight:700!important;box-shadow:0 4px 12px rgba(0,0,0,.22)!important}.route-label:before{display:none!important}.btn{display:inline-block;margin-top:10px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#ffffff08;font-size:12px}
 footer{padding:50px 0 80px;color:#8f99aa;font-size:12px}
 @media(max-width:900px){.grid3,.grid2,.whisky,.maps{grid-template-columns:1fr}}@media(max-width:650px){.hero{padding-top:78px}.hero h1{font-size:58px}.head{display:block}.head p{margin-top:10px}.stop{grid-template-columns:65px 1fr}.map{height:230px}}
 </style>
@@ -71,15 +71,32 @@ footer{padding:50px 0 80px;color:#8f99aa;font-size:12px}
 </div></div></section>
 
 <section id="maps"><div class="wrap"><div class="head"><h2>동선 지도</h2><p>1·2·3일차를 각각 분리해서 확인. 선은 일정 순서를 보여주는 대략적인 연결선.</p></div><div class="maps">
-<div class="card"><div class="tag">DAY 1 MAP</div><h3>타이중역 · 서구</h3><div id="map1" class="map"></div><ol class="routes"><li>공항</li><li>53 Hotel</li><li>궁원안과</li><li>Animate</li><li>KAVALAN</li><li>Painted Animation Lane</li><li>Shen Ji</li><li>Calligraphy Greenway</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/Taichung+International+Airport/53+Hotel+Taichung/Miyahara+Taichung/Animate+Taichung/KAVALAN+Taichung/Painted+Animation+Lane+Taichung/Shen+Ji+New+Village+Taichung/Calligraphy+Greenway+Taichung/">구글맵 경로 ↗</a></div>
-<div class="card"><div class="tag">DAY 2 MAP</div><h3>국가가극원 · 고미습지</h3><div id="map2" class="map"></div><ol class="routes"><li>53 Hotel</li><li>국가가극원</li><li>고미습지</li><li>펑지아 야시장</li><li>53 Hotel</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/53+Hotel+Taichung/National+Taichung+Theater/Gaomei+Wetlands/Feng+Chia+Night+Market/53+Hotel+Taichung/">구글맵 경로 ↗</a></div>
-<div class="card"><div class="tag">DAY 3 MAP</div><h3>타이중역 · 공항</h3><div id="map3" class="map"></div><ol class="routes"><li>53 Hotel</li><li>타이중역 주변</li><li>53 Hotel</li><li>공항</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/53+Hotel+Taichung/Taichung+Station/53+Hotel+Taichung/Taichung+International+Airport/">구글맵 경로 ↗</a></div>
+<div class="card"><div class="tag">DAY 1 MAP</div><h3>타이중역 · 서구</h3><div id="map1" class="map"></div><div class="maphelp">지도 안 숫자가 이동 순서이며, 각 점 옆 라벨이 장소명입니다.</div><ol class="routes"><li><b>1</b>공항</li><li><b>2</b>53 Hotel</li><li><b>3</b>궁원안과</li><li><b>4</b>Animate</li><li><b>5</b>KAVALAN</li><li><b>6</b>Painted Animation Lane</li><li><b>7</b>Shen Ji</li><li><b>8</b>Calligraphy Greenway</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/Taichung+International+Airport/53+Hotel+Taichung/Miyahara+Taichung/Animate+Taichung/KAVALAN+Taichung/Painted+Animation+Lane+Taichung/Shen+Ji+New+Village+Taichung/Calligraphy+Greenway+Taichung/">구글맵 경로 ↗</a></div>
+<div class="card"><div class="tag">DAY 2 MAP</div><h3>국가가극원 · 고미습지</h3><div id="map2" class="map"></div><div class="maphelp">지도 안 숫자가 이동 순서이며, 각 점 옆 라벨이 장소명입니다.</div><ol class="routes"><li><b>1</b>53 Hotel</li><li><b>2</b>국가가극원</li><li><b>3</b>고미습지</li><li><b>4</b>펑지아 야시장</li><li><b>5</b>53 Hotel 복귀</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/53+Hotel+Taichung/National+Taichung+Theater/Gaomei+Wetlands/Feng+Chia+Night+Market/53+Hotel+Taichung/">구글맵 경로 ↗</a></div>
+<div class="card"><div class="tag">DAY 3 MAP</div><h3>타이중역 · 공항</h3><div id="map3" class="map"></div><div class="maphelp">지도 안 숫자가 이동 순서이며, 각 점 옆 라벨이 장소명입니다.</div><ol class="routes"><li><b>1</b>53 Hotel</li><li><b>2</b>타이중역 주변</li><li><b>3</b>53 Hotel 복귀</li><li><b>4</b>공항</li></ol><a class="btn" target="_blank" href="https://www.google.com/maps/dir/53+Hotel+Taichung/Taichung+Station/53+Hotel+Taichung/Taichung+International+Airport/">구글맵 경로 ↗</a></div>
 </div></div></section>
 
 <footer><div class="wrap">이동시간과 가격은 대략적인 예상치이며 교통량·수요·환율에 따라 달라질 수 있습니다.</div></footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-function mk(id,pts,c){const m=L.map(id,{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(m);const ll=pts.map(x=>x[1]);m.fitBounds(L.latLngBounds(ll).pad(.18));L.polyline(ll,{color:c,weight:4}).addTo(m);pts.forEach((x,i)=>L.circleMarker(x[1],{radius:7,color:c,fillColor:c,fillOpacity:.9}).addTo(m).bindPopup('<b>'+(i+1)+'. '+x[0]+'</b>'))}
+function mk(id,pts,c){
+  const m=L.map(id,{scrollWheelZoom:false});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(m);
+  const seen={}, plotted=[];
+  pts.forEach(x=>{
+    const key=x[1][0].toFixed(4)+','+x[1][1].toFixed(4);
+    const n=seen[key]||0; seen[key]=n+1;
+    x[2]=[x[1][0]+n*0.0045,x[1][1]+n*0.0045];
+    plotted.push(x[2]);
+  });
+  m.fitBounds(L.latLngBounds(plotted.concat(pts.map(x=>x[1]))).pad(.18));
+  L.polyline(plotted,{color:c,weight:4,opacity:.9}).addTo(m);
+  pts.forEach((x,i)=>{
+    const icon=L.divIcon({className:'route-marker-wrap',html:'<div class="route-marker" style="background:'+c+'">'+(i+1)+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
+    const marker=L.marker(x[2],{icon}).addTo(m).bindPopup('<b>'+(i+1)+'. '+x[0]+'</b>');
+    marker.bindTooltip((i+1)+'. '+x[0],{permanent:true,direction:'right',offset:[16,0],className:'route-label'});
+  });
+}
 mk('map1',[['공항',[24.2647,120.6217]],['53 Hotel',[24.1360,120.6845]],['궁원안과',[24.1369,120.6841]],['Animate',[24.1364,120.6872]],['KAVALAN',[24.1364,120.6870]],['Painted Animation Lane',[24.1456,120.6624]],['Shen Ji',[24.1453,120.6644]],['Calligraphy Greenway',[24.1480,120.6633]]],'#f5b73b');
 mk('map2',[['53 Hotel',[24.1360,120.6845]],['국가가극원',[24.1640,120.6404]],['고미습지',[24.3119,120.5507]],['펑지아',[24.1799,120.6468]],['53 Hotel',[24.1360,120.6845]]],'#55c6ff');
 mk('map3',[['53 Hotel',[24.1360,120.6845]],['타이중역',[24.1367,120.6850]],['53 Hotel',[24.1360,120.6845]],['공항',[24.2647,120.6217]]],'#8de1b2');
